@@ -1,8 +1,7 @@
-SELECT clientes.NomeDaEmpresa, pedidos.NumeroDoPedido, pedidos.DataDoPedido, produtos.NomeDoProduto, produtos.PrecoUnitario
+SELECT pedidos.NumeroDoPedido, detalhesdopedido.PrecoUnitario, produtos.NomeDoProduto, funcionarios.DataDeContratacao
 
-FROM clientes
+FROM detalhesdopedido
 
-INNER JOIN pedidos on clientes.CodigoDoCliente = pedidos.CodigoDoCliente
-INNER JOIN detalhesdopedido ON pedidos.NumeroDoPedido = detalhesdopedido.NumeroDoPedido
 INNER JOIN produtos ON detalhesdopedido.CodigoDoProduto = produtos.CodigoDoProduto
-
+INNER JOIN pedidos ON detalhesdopedido.NumeroDoPedido = pedidos.NumeroDoPedido
+INNER JOIN funcionarios ON pedidos.CodigoDoFuncionario = funcionarios.CodigoDoFuncionario
